@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
-    import { Sky } from '@threlte/extras';
+	import { Sky } from '@threlte/extras';
 	import Room from '../components/Room.svelte';
 	import Pond from '../components/Pond.svelte';
-	
+
 	let scene: 'room' | 'pond' = 'room';
 	let lightLevel: 'dim' | 'bright';
 	let autoRotate = false;
@@ -74,8 +74,7 @@
 					rayleigh={0.57}
 					azimuth={180}
 					mieCoefficient={0.038}
-					mieDirectionalG={0}
-				/>
+					mieDirectionalG={0} />
 				<Room {lightLevel} />
 			{:else}
 				<Sky
@@ -85,8 +84,7 @@
 					rayleigh={1}
 					azimuth={180}
 					mieCoefficient={0.038}
-					mieDirectionalG={0}
-				/>
+					mieDirectionalG={0} />
 				<Pond {autoRotate} />
 			{/if}
 		</Canvas>
@@ -98,11 +96,9 @@
 				<!-- scene options -->
 				<p class="font-semibold">scenes:</p>
 				<button on:click={() => (scene = 'room')} class="bg-violet-500/10 px-1 py-0.5 rounded-md"
-					>home 🏡</button
-				>
+					>home 🏡</button>
 				<button on:click={() => (scene = 'pond')} class="bg-violet-500/10 px-1 py-0.5 rounded-md"
-					>pond 🪷</button
-				>
+					>pond 🪷</button>
 			</div>
 
 			<div class="flex gap-1 items-center">
@@ -111,23 +107,19 @@
 				<button
 					on:click={() => setTimer(5)}
 					class={TIME_BUTTON_CLASSES}
-					aria-label="set 5 minute timer">5</button
-				>
+					aria-label="set 5 minute timer">5</button>
 				<button
 					on:click={() => setTimer(10)}
 					class={TIME_BUTTON_CLASSES}
-					aria-label="set 10 minute timer">10</button
-				>
+					aria-label="set 10 minute timer">10</button>
 				<button
 					on:click={() => setTimer(25)}
 					class={TIME_BUTTON_CLASSES}
-					aria-label="set 25 minute timer">25</button
-				>
+					aria-label="set 25 minute timer">25</button>
 				<button
 					on:click={() => setTimer(50)}
 					class={TIME_BUTTON_CLASSES}
-					aria-label="set 50 minute timer">50</button
-				>
+					aria-label="set 50 minute timer">50</button>
 			</div>
 			<!-- timer display -->
 			<p class="bg-violet-50/5 text-violet-50 text-5xl rounded-md p-4">
@@ -141,8 +133,7 @@
 					on:click={isRunning ? stopTimer : startTimer}
 					class=" bg-violet-50/5 px-2 py-1 rounded-md text-sm font-semibold"
 					class:text-green-300={!isRunning}
-					class:text-red-300={isRunning}>{isRunning ? 'pause' : 'start'}</button
-				>
+					class:text-red-300={isRunning}>{isRunning ? 'pause' : 'start'}</button>
 			</div>
 
 			<p class="text-gray-100/80 text-xs mt-1 max-w-[30ch] text-center">
@@ -154,8 +145,7 @@
 				<button
 					on:click={toggleLightLevel}
 					class="bg-violet-50/5 text-violet-50 text-xs px-1 py-0.5 rounded-md"
-					>toggle the big lights</button
-				>
+					>toggle the big lights</button>
 			{/if}
 			{#if scene === 'pond'}
 				<button

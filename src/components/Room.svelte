@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
-	import { GLTF, OrbitControls } from '@threlte/extras';
+	import { OrbitControls } from '@threlte/extras';
+	import Scene from './models/room-scene.svelte';
 
 	export let lightLevel: 'dim' | 'bright' = 'bright';
 </script>
@@ -17,4 +18,4 @@
 	<T.DirectionalLight position={[100, 100, 40]} intensity={0.4} />
 {/if}
 
-<GLTF url="src/lib/assets/models/cozy/scene.gltf" />
+<Scene />
