@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
-	import { GLTF, OrbitControls } from '@threlte/extras';
+	import { OrbitControls } from '@threlte/extras';
 	import Scene from './models/pond-scene.svelte';
+  
 	export let autoRotate = false;
 </script>
 
