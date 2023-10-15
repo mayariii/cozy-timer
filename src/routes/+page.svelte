@@ -92,13 +92,16 @@
 	<div class="fixed bottom-0 md:bottom-8 w-screen z-10">
 		<div class="flex flex-col gap-2 items-center mb-6 md:mb-10">
 			<h1 class="text-xl md:text-2xl text-white font-semibold">cozy timer ☁️</h1>
-			<div class="flex gap-1 text-violet-50 text-sm items-center">
-				<!-- scene options -->
-				<p class="font-semibold">scenes:</p>
-				<button on:click={() => (scene = 'room')} class="bg-violet-50/10 px-1 py-0.5 rounded-md"
-					>home 🏡</button>
-				<button on:click={() => (scene = 'pond')} class="bg-violet-50/10 px-1 py-0.5 rounded-md"
-					>pond 🪷</button>
+			<!-- hide scene selection on mobile due to safari crashing with pond scene -->
+			<div class="hidden md:flex">
+				<div class="flex gap-1 text-violet-50 text-sm items-center md:visible">
+					<!-- scene options -->
+					<p class="font-semibold">scenes:</p>
+					<button on:click={() => (scene = 'room')} class="bg-violet-50/10 px-1 py-0.5 rounded-md"
+						>home 🏡</button>
+					<button on:click={() => (scene = 'pond')} class="bg-violet-50/10 px-1 py-0.5 rounded-md"
+						>pond 🪷</button>
+				</div>
 			</div>
 
 			<div class="flex gap-1 items-center">
@@ -122,7 +125,8 @@
 					aria-label="set 50 minute timer">50</button>
 			</div>
 			<!-- timer display -->
-			<p class="bg-violet-50/10 text-violet-50 text-2xl md:text-5xl rounded-md p-2 md:p-4 font-semibold">
+			<p
+				class="bg-violet-50/10 text-violet-50 text-2xl md:text-5xl rounded-md p-2 md:p-4 font-semibold">
 				{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
 			</p>
 
@@ -136,8 +140,13 @@
 					class:text-red-300={isRunning}>{isRunning ? 'pause' : 'start'}</button>
 			</div>
 
-			<p class="text-gray-100/80 text-xs mt-1 max-w-[30ch] text-center">
+			<!-- desktop -->
+			<p class="hidden md:flex text-gray-100/80 text-xs mt-1 max-w-[30ch] text-center">
 				explore scene: drag to rotate, cmd + drag to pan, pinch to zoom in/out
+			</p>
+			<!-- mobile -->
+			<p class="md:hidden text-gray-100/80 text-xs mt-1 max-w-[30ch] text-center">
+				explore scene: drag to rotate, two fingers to pan, pinch to zoom in/out
 			</p>
 
 			<!-- scene specific options -->
